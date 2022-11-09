@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block content %}
+  <div>
+    <div>
+      <form action="POST" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit"> Cadastrar </button>
+      </form>
+      <p> Já possui conta? <a href="/accounts/login">Entrar</a></p>
+    </div>
+  </div>
+{% endblock content %}
+  

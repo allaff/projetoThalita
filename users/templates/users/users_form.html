@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+  <div>
+    <h1>Login</h1>
+    <div>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="email" name="Email" placeholder="Digite seu e-mail">
+        <input type="password" name="Password" placeholder="Digite sua senha">
+        <input type="number" name="CPF" placeholder="Digite seu CPF">
+        <input type="submit" value="Login">
+      </form>    
+    </div>
+  </div>
+  
+{% endblock content %}

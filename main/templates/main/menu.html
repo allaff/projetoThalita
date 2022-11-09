@@ -1,0 +1,8 @@
+{% if user.is_authenticated %}
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'users.index' %}">Pedidos</a></li>
+    {% comment %} <li><a href="">Usuários Cadastrados</a></li> {% endcomment %}
+    <li><a href="{%url 'logout'%}">Logout</a></li>
+  </ul>
+{% endif %}

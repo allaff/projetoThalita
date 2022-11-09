@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% block content %}
+  <form method="GET">
+    <input type="text" name="nome" placeholder="Buscar por nome"/>
+    <input type="submit" value="Buscar"/>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Senha</th>
+        <th>CPF</th>
+        <th>Função na empresa</th>
+      </tr>
+      <tbody>
+        {% for users in object_list %}
+          <tr>
+            <td>{{users.nome}}</td>
+            <td>{{users.email}}</td>
+            <td>{{users.senha}}</td>
+            <td>{{users.cpf}}</td>
+            <td>
+              {% if users.funcaoEmpresa %}
+                Sim
+                {% else %}
+                  Não
+              {% endif %}
+            </td>
+            <td>
+              <a href="{%url 'users.editar' users.pk%}"> Editar</a>
+              <a href="{%url 'users.excluir' users.pk%}"> Excluir</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </thead>
+  </table>
+
+  <a href="{%url 'users.novo'%}">Criar um novo cadastro</a>
+{% endblock content %}
